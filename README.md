@@ -192,6 +192,7 @@ requests
 - **Transformers**: For natural language processing using the `pipeline` API.
 - **Torch, Torchvision, Torchaudio**: Libraries for deep learning models.
 - **Streamlit**: Framework for building interactive web applications.
+- **GCP libraries**
 - **Requests**: For handling HTTP requests (though not used in the current mock implementation).
 
 ## Deployment
