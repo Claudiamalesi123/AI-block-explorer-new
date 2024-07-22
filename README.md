@@ -1,66 +1,28 @@
 
 ---
 
-# AI-Assisted Block Explorer
+# AI-assisted Block Explorer
+
+The AI-assisted Block Explorer is a Streamlit app that allows users to interact with blockchain transaction data using natural language queries. The app leverages state-of-the-art natural language processing (NLP) techniques to provide insightful responses to user queries about blockchain transactions.
+
+**Live App:** [AI-assisted Block Explorer](https://ai-block-explorer-claudiamalesi.streamlit.app/)
 
 ## Overview
 
-The **AI-Assisted Block Explorer** is a Streamlit application designed to provide a natural language interface for exploring blockchain transaction data. By leveraging advanced NLP techniques, the app enables users to query blockchain transactions using human-readable queries. The backend is powered by the Transformers library from Hugging Face, and mock transaction data is simulated via the `explorer.py` module.
+The app is designed to provide an intuitive and interactive interface for exploring blockchain transactions. It allows users to input natural language queries related to blockchain data and get relevant answers based on the provided mock data.
 
 ## Features
 
-- **Natural Language Querying:** Users can enter queries like "How many transactions were made for wallet123 on 2024-07-21?" and receive contextually relevant answers.
-- **Interactive Interface:** A user-friendly interface built with Streamlit to make querying and data exploration seamless.
-- **Custom Styling:** Enhanced user experience through custom CSS styling applied via Streamlit’s Markdown support.
+- **Natural Language Querying:** Users can ask questions about blockchain transactions using natural language.
+- **Data Extraction:** The app extracts relevant wallet and date information from the user's query.
+- **Contextual Answers:** The app uses a question-answering model to provide contextually accurate responses.
+- **User-Friendly Interface:** The app includes custom styling to enhance the user experience.
 
-## Libraries
-
-The app utilizes the following Python libraries:
-
-- **Transformers**: For question-answering capabilities using pre-trained NLP models.
-- **Torch**: As a core dependency for the Transformers library.
-- **Torchvision**: Used for any vision-related tasks if required in future extensions.
-- **Torchaudio**: For audio processing tasks, should they be required.
-- **Streamlit**: To create the interactive web application.
-- **Requests**: For handling HTTP requests, though it’s primarily used here for mock data fetching.
-
-These libraries are specified in the `requirements.txt` file and need to be installed to run the app.
-
-## Setup Instructions
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/Claudiamalesi123/AI-block-explorer-new.git
-   cd AI-block-explorer-new
-   ```
-
-2. **Create a Virtual Environment:**
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-
-3. **Install Dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application:**
-
-   ```bash
-   streamlit run app.py
-   ```
-
-   Navigate to `http://localhost:8501` in your web browser to interact with the application.
-
-## Code Overview
+## Files and Code
 
 ### `app.py`
 
-This file contains the main logic for the Streamlit application:
+The main file for the Streamlit application. It handles user input, processes queries, and displays results.
 
 ```python
 from transformers import pipeline
@@ -157,7 +119,7 @@ if __name__ == "__main__":
 
 ### `explorer.py`
 
-This file contains the mock data fetching logic:
+Contains a mock implementation of the function to fetch blockchain transactions.
 
 ```python
 import requests
@@ -181,7 +143,7 @@ def get_transactions(wallet, date):
 
 ### `requirements.txt`
 
-Specifies the necessary Python libraries:
+Lists the Python packages required for the app.
 
 ```
 transformers
@@ -192,23 +154,27 @@ streamlit
 requests
 ```
 
-## GCP Requirements
+## Libraries Used
 
-Currently, the application runs locally and does not directly utilize Google Cloud Platform (GCP) services. However, if you plan to deploy this application to GCP, you will need to ensure:
+- **Transformers**: For natural language processing using the `pipeline` API.
+- **Torch, Torchvision, Torchaudio**: Libraries for deep learning models.
+- **Streamlit**: Framework for building interactive web applications.
+- **Requests**: For handling HTTP requests (though not used in the current mock implementation).
 
-- **Google Cloud Storage**: For storing any large datasets or models.
-- **App Engine** or **Compute Engine**: For hosting the Streamlit app.
-- **Google Kubernetes Engine**: If deploying at scale using Kubernetes.
-- **Google Cloud Functions**: If any serverless functions are needed for processing.
+## GCP Requirements and Usage
 
-## Troubleshooting
+1. **Google Cloud Platform (GCP) Requirements**:
+   - Ensure that your GCP environment is set up correctly if you're deploying on GCP services like Google Cloud Run, App Engine, or Compute Engine.
+   - Install necessary Python libraries in your GCP environment.
 
-If you encounter issues with pushing to GitHub, ensure the following:
+2. **Usage**:
+   - This application can be deployed on various cloud platforms. For GCP, you might use Cloud Run or App Engine, which supports Python applications.
+   - Ensure that the necessary environment variables and secrets are configured if you're connecting to real data sources or APIs.
 
-- The correct repository URL is used.
-- You have appropriate access rights to the repository.
-- The `.gitignore` file is configured correctly to exclude unnecessary files and directories.
+## Deployment
 
-For further assistance, consult the [GitHub Documentation](https://docs.github.com/) or [Streamlit Documentation](https://docs.streamlit.io/).
+For deployment, follow these steps:
 
----
+1. **Streamlit Community Cloud**:
+   - Push changes to your GitHub repository. Streamlit Community Cloud will automatically deploy the latest version.
+
