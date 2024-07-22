@@ -18,7 +18,40 @@ The app is designed to provide an intuitive and interactive interface for explor
 - **Contextual Answers:** The app uses a question-answering model to provide contextually accurate responses.
 - **User-Friendly Interface:** The app includes custom styling to enhance the user experience.
 
-## Files and Code
+## File Structure
+
+- `app.py`: Main file for the Streamlit application. It handles user input, processes queries, and displays results.
+- `explorer.py`: Contains a mock implementation of the function to fetch blockchain transactions.
+- `requirements.txt`: Lists the Python packages required for the app.
+- `.gitignore`: Specifies files and directories to be ignored by Git.
+
+## Installation
+
+To run this app locally, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/Claudiamalesi123/AI-block-explorer-new.git
+    cd AI-block-explorer-new
+    ```
+
+2. **Create a virtual environment**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. **Install the required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the app**:
+    ```bash
+    streamlit run app.py
+    ```
+
+## Code Explanation
 
 ### `app.py`
 
@@ -161,20 +194,9 @@ requests
 - **Streamlit**: Framework for building interactive web applications.
 - **Requests**: For handling HTTP requests (though not used in the current mock implementation).
 
-## GCP Requirements and Usage
-
-1. **Google Cloud Platform (GCP) Requirements**:
-   - Ensure that your GCP environment is set up correctly if you're deploying on GCP services like Google Cloud Run, App Engine, or Compute Engine.
-   - Install necessary Python libraries in your GCP environment.
-
-2. **Usage**:
-   - This application can be deployed on various cloud platforms. For GCP, you might use Cloud Run or App Engine, which supports Python applications.
-   - Ensure that the necessary environment variables and secrets are configured if you're connecting to real data sources or APIs.
-
 ## Deployment
 
-For deployment, follow these steps:
+The app is deployed on Streamlit Community Cloud. Any changes pushed to the GitHub repository will automatically trigger a redeployment.
 
-1. **Streamlit Community Cloud**:
-   - Push changes to your GitHub repository. Streamlit Community Cloud will automatically deploy the latest version.
 
+---
